@@ -1,0 +1,21 @@
+<import src="/template/login/index.wxml" />
+<view class="container">
+  <view class="shop-box"  >
+    <image class="thumbnail" src="{{shopDetail.info.pic}}"  mode="aspectFill" lazy-load="true" />
+    <view class="info">
+      <view class="title">{{shopDetail.info.name}}</view>
+      <view class="tags">
+        <button size="mini" class="tag-button" >{{shopDetail.info.type}}</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="goods-des-info">
+    <view class="label-title">公司介绍</view>
+    <view class="goods-text">
+      <parser html="{{shopDetail.info.introduce}}" />
+    </view>
+  </view>
+</view>
+
+<template is="apifmLogin" data="{{wxlogin: wxlogin}}" />

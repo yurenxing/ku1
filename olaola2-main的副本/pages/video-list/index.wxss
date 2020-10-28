@@ -1,0 +1,240 @@
+page {
+  background: #f5f5f5;
+}
+page,view,image,input {
+  display: block;
+  box-sizing: border-box;
+}
+.header {
+  padding: 32rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+}
+.header .search {
+  position: relative;
+  width: 650rpx;
+  height: 66rpx;
+}
+.header .search input {
+  border: 1rpx solid #e3e3e3;
+  width: 100%;
+  height: 100%;
+  border-radius: 30rpx;
+  padding-left: 60rpx;
+}
+.header .search image {
+  width: 35rpx;
+  height: 35rpx;
+  position: absolute;
+  top: 16rpx;
+  right: 40rpx;
+}
+.header .show-type {
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+}
+.line {
+  width: 100vw;
+  height: 2rpx;
+  background: #dfdfdf;
+}
+.filters {
+  width: 100vw;
+  height: 88rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+}
+.filters .item {
+  line-height: 88rpx;
+}
+.filters .active {
+  color:#fa1e26;
+}
+.ellipsis {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+.videos-container{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap:wrap;
+  box-sizing: content-box;
+  padding: 24rpx;
+  background-color: #F2f2f2;
+}
+.videos-1-box{
+  width: 339rpx;
+  height: 472rpx;
+  background-color: #fff;
+  overflow: hidden;
+  margin-bottom: 24rpx;
+  border-radius:5px;
+}
+.videos-1-box .img-box{
+  width: 339rpx;
+  height: 339rpx;
+  overflow: hidden;
+}
+.videos-1-box .img-box image{
+   width: 339rpx;
+   height: 339rpx;
+}
+.videos-1-box .video-title{
+  width: 300rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 36rpx;
+  padding: 10rpx;
+  color:#000;
+  margin-left: 24rpx;
+}
+.videos-1-box .company-thumbnail {
+  width: 80rpx;
+  margin-left: 20rpx;
+}
+.videos-1-box .company-thumbnail image{
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+}
+.videos-1-box .company-title {
+  width: 280rpx;
+  overflow: hidden;
+  font-size: 24rpx;
+  color: #e64340;
+  margin-top: 14rpx;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.videos-2-box {
+  position: relative;
+  width: 100vw;
+  height: 50vh;
+  background-color: #fff;
+  overflow: hidden;
+  margin-bottom: 24rpx;
+  border-radius:5px;
+}
+
+.videos-2-box .img, .videos-2-box video {
+  height: 38.2vh;
+  width: 95vw;
+}
+.videos-2-box .play {
+  position: absolute;
+  top: 150rpx;
+  left: 300rpx;
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.videos-2-box .meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8rpx 16rpx;
+  position: absolute;
+  top: 10rpx;
+  width: 100%;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 1);
+  text-shadow: 0 5px 19px rgba(0, 0, 0, 0.5);
+}
+.videos-2-box .meta .date {
+  font-size: 16rpx;
+  font-weight: bold;
+}
+.videos-2-box .meta .visit {
+  font-size: 16rpx;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.videos-2-box .meta .visit .num {
+  margin-right: 5rpx;
+}
+.videos-2-box .meta .visit image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.videos-2-box .company-thumbnail {
+  width: 80rpx;
+  margin-left: 20rpx;
+}
+.videos-2-box .company-thumbnail image{
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+}
+.videos-2-box .company-title {
+  width: 280rpx;
+  overflow: hidden;
+  font-size: 24rpx;
+  color: #e64340;
+  margin-top: 14rpx;
+}
+
+.videos-2-box .video-title{
+  width: 280rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 36rpx;
+  font-weight: bold;
+  padding: 12rpx;
+  color:#000;
+  margin-left: 24rpx;
+}
+
+
+.videos-info-fx {
+  position: absolute;
+  right: 35rpx;
+  bottom: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 200rpx;
+}
+.videos-info-fx .item {
+  width: 50rpx;
+  height: 80rpx;
+  right: 130rpx;
+  top: 100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  background: #fff;
+  z-index: 20;
+}
+
+.videos-info-fx .item image {
+  width: 50rpx;
+  height: 50rpx;
+}
+.videos-info-fx .item .num {
+  /* margin-left: 10rpx; */
+  justify-content: center;
+}
+.videos-info-fx .item button {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  z-index: 99;
+}

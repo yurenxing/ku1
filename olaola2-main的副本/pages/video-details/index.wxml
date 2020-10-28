@@ -1,0 +1,102 @@
+<import src="/template/login/index.wxml" />
+<view class="container">
+  <view class="swiper-container">
+    <swiper class="swiper_box"  autoplay="{{!videosDetail.basicInfo.videoId}}">
+      <swiper-item wx:if="{{videosDetail.basicInfo.videoId}}">
+        <video
+          src="{{videoMp4Src}}"
+          autoplay="{{true}}"
+          loop="{{false}}"
+          style='width:100%;height:100%;'
+          controls
+          ></video>
+      </swiper-item>
+      <!-- <swiper-item wx:for="{{videosDetail.pics}}" wx:key="id">
+        <image src="{{item.pic}}" class="slide-image" mode="aspectFill" lazy-load="true" />
+      </swiper-item> -->
+    </swiper>
+  </view>
+
+  <view class="videos-info">
+    <view class="videos-title">{{videosDetail.basicInfo.name}}</view>
+    <view class="shop-container" wx:if="{{shopSubdetail}}" >
+      <image mode="aspectFill" src="{{shopSubdetail.info.pic}}" bindtap="toShopDetailTap" data-id="{{videosDetail.basicInfo.shopId}}"></image>
+      <view class="info">
+        <view class="title" bindtap="toShopVideosTap" data-id="{{videosDetail.basicInfo.shopId}}">{{shopSubdetail.info.name}}</view>
+      </view>
+    </view>
+
+    <view class="company-title" bindtap="toShopVideosTap" data-id="{{item.company.id}}">{{item.company.name}}</view>
+
+
+    <view class="videos-info-fx">
+      <view class='item'>
+        <image class='icon' src='../../images/cs.png'></image>
+        <view class="num">-</view>
+        <button class="cs_button"   open-type="contact"  session-from="weapp"></button >
+      </view>
+      <view class='item' bindtap="addFav" data-id="{{item.id}}">
+        <image src="/images/icon/fav{{faved?'1':'0'}}.svg"></image>
+        <view class="num">{{videosDetail.basicInfo.numberFav}}</view>
+      </view>
+      <view class="item">
+        <image src="/images/icon/views_gray.png"></image>
+        <view class="num">{{videosDetail.basicInfo.views}}</view>
+      </view>
+      <view class='item'>
+        <image src='/images/share/share1.png'></image>
+        <view class="num">{{videosDetail.basicInfo.numberGoodReputation}}</view>
+        <button open-type='share'></button>
+      </view>
+    </view>
+
+  </view>
+
+
+  <view class="goods-des-info">
+    <view class="label-title">视频介绍</view>
+    <view class="goods-text">
+      <parser html="{{videosDetail.content}}" />
+    </view>
+  </view>
+
+  <view class="videos-container">
+    <view class="videos-1-box" wx:for="{{videos}}" wx:key="id" bindtap="toVideoDetailTap" data-id="{{item.id}}" wx:if="{{item.videoId}}">
+      <view class="img-box">
+        <image src="{{item.pic}}" class="image" mode="aspectFill" lazy-load="true" />
+      </view>
+
+      <view class="video-title">{{item.name}}</view>
+
+      <view style='display:flex;'>
+        <view class="company-thumbnail">
+          <image bindtap="toShopDetailTap" data-id="{{item.company.id}}"  src="{{item.company.pic}}" mode="cover"></image>
+        </view>
+        <view class="company-title">{{item.company.name}}</view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<block wx:if="{{posterShow}}">
+  <view class="poster-mask"></view>
+  <view class="poster">
+    <canvas class="canvas" style="{{canvasstyle}}" canvas-id="firstCanvas"></canvas>
+  </view>
+  <view class="poster-btn">
+    <button type="primary" size="mini" bindtap='_saveToMobile'> 保存图片 </button>
+    <button type="warn" size="mini" bindtap='closePop'> 关闭 </button>
+  </view>
+</block>
+
+<template is="apifmLogin" data="{{wxlogin: wxlogin}}" />
+<!-- <float-menu />  -->
+
+
+<poster id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail"></poster>
+<view wx:if="{{showposterImg}}" class="popup-mask"></view>
+<view wx:if="{{showposterImg}}" class="posterImg-box">
+  <image mode="widthFix" class="posterImg" src="{{posterImg}}"></image>
+  <view class="btn-create" bindtap="savePosterPic">保存到相册</view>
+</view>

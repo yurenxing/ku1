@@ -1,0 +1,21 @@
+<view class="article-container">
+  <view class="category-title">
+    {{categoryInfo.name}}
+  </view>
+  <view class="aritcle-list">
+    <navigator wx:for="{{articleList}}" wx:key="{{item.id}}" hover-class='none' class="article-item" url='../article-detail/index?id={{item.id}}'>
+      <image class="article-cover" mode='aspectFill' src='{{item.pic}}'></image>
+      <view class="article-info">
+        <text class="title">{{item.title}}</text>
+        <text class="description">{{item.descript}}</text>
+        <!-- <block  wx:for="{{item.tagList}}" wx:key="id" wx:for-item="tag">
+          <text class="tag">{{tag}}</text>
+        </block> -->
+        <view class="views">
+          <image src='../../images/icon/views_gray.png'></image>
+          {{item.views}}
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>

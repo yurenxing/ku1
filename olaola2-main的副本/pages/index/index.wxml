@@ -1,0 +1,125 @@
+<!-- <import src="/template/login/index.wxml" /> -->
+
+<view class="container">
+  <view class="search-container ">
+    <view class="title">
+      <image src="/images/logo.png"></image>
+      <view class="name">OLAOLA</view>
+    </view>
+    <view class="search">
+      <input type="text" placeholder="输入搜索关键词" value="{{name}}" bindinput="bindinput" bindconfirm="bindconfirm"></input>
+      <image src="/images/icon/search.svg"></image>
+    </view>
+    <view class="scancode">
+      <image src="/images/icon/scan.png" bindtap="tapScanQR"></image>
+    </view>
+  </view>
+
+  <scroll-view class="menu-container" scroll-x="true" scroll-with-animation="true">
+    <view wx:if="{{category.level == 2}}" class="category {{categorySelected.id==category.id?'active':''}}"
+      wx:for="{{categories}}" wx:for-item="category" wx:key="id" data-id="{{category.id}}"
+      bindtap="onCategoryClick">
+      <view class="name {{categorySelected.id==category.id?'active':''}}">{{category.name}}</view>
+    </view>
+  </scroll-view>
+
+  <van-divider wx:if="{{categorySelected.recommendStatus >0 }}" contentPosition="center">精选视频</van-divider>
+
+  <view class="videos-container" wx:if="{{videos.length > 0 && categorySelected.recommendStatus == 1}}">
+    <view class="videos-1-box" wx:for="{{videos}}" wx:key="id"  wx:if="{{item.videoId}}">
+      <view class="img-box" bindtap="toVideoDetailTap" data-id="{{item.id}}">
+        <image src="{{item.pic}}" class="image" mode="aspectFill" lazy-load="true" />
+      </view>
+
+      <view class="video-title" >{{item.name}}</view>
+
+      <view style='display:flex;'>
+        <view class="company-thumbnail">
+          <image bindtap="toShopDetailTap" data-id="{{item.company.id}}"  src="{{item.company.pic}}" mode="cover"></image>
+        </view>
+        <view class="company-title" bindtap="toShopVideosTap" data-id="{{item.company.id}}">{{item.company.name}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="videos-container" wx:if="{{videos.length > 0 && categorySelected.recommendStatus == 0}}">
+    <view class="videos-2-box" wx:for="{{videos}}" wx:key="id" wx:if="{{item.videoId}}">
+      <video
+        hidden="{{ currentVid != item.id }}"
+        id="{{ item.id }}"
+        src="{{ item.video.fdMp4 }}"
+        objectFit="contain"
+        show-center-play-btn='{{false}}'
+        autoplay="{{falses}}"
+        loop="{{false}}"
+        show-play-btn="{{true}}"
+        ></video>
+      <image
+          class="img"
+          hidden="{{ currentVid == item.id }}"
+          data-id="{{ item.id }}"
+          bindtap="toVideoDetailTap"
+          src="{{ item.pic }}"
+          mode="aspectFill"
+          >
+      </image>
+
+      <image
+        class="play"
+        src="/images/icon/play_button.png"
+        hidden="{{ currentVid == item.id }}"
+        bindtap="playVideo"
+        data-vid="{{item.id}}"
+        >
+      </image>
+      <view class="meta" wx:if="{{ currentVid != item.id }}">
+        <!-- <view class="date">{{item.dateUpdate}}
+        </view> -->
+        <view class="date"></view>
+        <view class="visit">
+          <view class="num">{{item.views}}</view>
+          <image src="/images/icon/eye-views.png"></image>
+        </view>
+      </view>
+
+      <view class="video-title">{{item.name}}</view>
+    
+    <view class="company-thumbnail-top">
+      <view style='display:flex;'>
+        <view class="company-thumbnail">
+          <image bindtap="toShopDetailTap" data-id="{{item.company.id}}"  src="{{item.company.pic}}" mode="cover"></image>
+        </view>
+        <view class="company-title" bindtap="toShopVideosTap" data-id="{{item.company.id}}">{{item.company.name}}</view>
+      </view>
+
+      <view class="videos-info-fx">
+        <view class='item'>
+          <image class='icon' src='../../images/cs.png'></image>
+          <view class="num">-</view>
+          <button class="cs_button"   open-type="contact"  session-from="weapp"></button >
+        </view>
+        <view class='item' bindtap="addFav" data-id="{{item.id}}">
+          <image class="fav-icon" src="/images/icon/fav{{item.faved?'1':'0'}}.svg"></image>
+          <view class="num">{{item.numberFav}}</view>
+        </view>
+        <view class="item">
+          <image src="/images/icon/views_gray.png"></image>
+          <view class="num">{{item.views}}</view>
+        </view>
+        <view class='item'>
+          <image src='/images/share/share1.png'></image>
+          <view class="num">{{item.numberGoodReputation}}</view>
+          <button open-type='share'></button>
+        </view>
+      </view>
+    </view>
+
+    </view>
+  </view>
+  <view hidden="{{loadingMore ? true : false}}" class="weui-loadmore weui-loadmore_line" style='margin-top:60rpx;margin-bottom:30rpx;'>
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多啦</view>
+  </view>
+
+</view>
+
+<template is="apifmLogin" data="{{wxlogin: wxlogin}}" />

@@ -1,0 +1,78 @@
+{
+  "pages": [
+    "pages/start/start",
+    "pages/shop/select",
+    "pages/index/index",
+    "pages/video-list/index",
+    "pages/video-details/index",
+    "pages/article-index/index",
+    "pages/article-list/index",
+    "pages/article-detail/index",
+    "pages/article-comment-list/index",
+    "pages/event/index",
+    "pages/my/index",
+    "pages/favorite/index",
+    "pages/history/index",
+    "pages/notice/index",
+    "pages/notice/show",
+    "pages/category/category"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black",
+    "onReachBottomDistance": 50
+  },
+  "tabBar": {
+    "color": "#6e6d6b",
+    "selectedColor": "#e64340",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/nav/home-off.png",
+        "selectedIconPath": "images/nav/home-on.png",
+        "text": "视频"
+      },
+      {
+        "pagePath": "pages/article-index/index",
+        "iconPath": "images/nav/ic_catefory_normal.png",
+        "selectedIconPath": "images/nav/ic_catefory_pressed.png",
+        "text": "文章"
+      },
+      {
+        "pagePath": "pages/event/index",
+        "iconPath": "images/nav/cart-off.png",
+        "selectedIconPath": "images/nav/cart-on.png",
+        "text": "活动"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "iconPath": "images/nav/my-off.png",
+        "selectedIconPath": "images/nav/my-on.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取离你最近的门店"
+    }
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx56c8f077de74b07c"
+  ],
+  "usingComponents": {
+    "float-menu": "/components/float-menu/index",
+    "parser":"/components/parser.20200414.min/parser",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-search": "@vant/weapp/search/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-count-down": "@vant/weapp/count-down/index",
+    "van-button": "@vant/weapp/button/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

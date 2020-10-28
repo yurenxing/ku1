@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="search-container ">
+    <view class="title">
+      <image src="/images/logo.png"></image>
+      <view class="name">OLAOLA</view>
+    </view>
+    <view class="search">
+      <input type="text" placeholder="输入搜索关键词" value="{{name}}" bindinput="bindinput" bindconfirm="bindconfirm"></input>
+      <image src="/images/icon/search.svg"></image>
+    </view>
+    <view class="scancode">
+      <image src="/images/icon/scan.png" bindtap="tapScanQR"></image>
+    </view>
+  </view>
+
+  <scroll-view class="menu-container" scroll-x="true" scroll-with-animation="true">
+    <view wx:if="{{category.level == 2}}" class="category {{categorySelected.id==category.id?'active':''}}" wx:for="{{categories}}" wx:for-item="category" wx:key="id" data-id="{{category.id}}" bindtap="onCategoryClick">
+      <view class="name {{categorySelected.id==category.id?'active':''}}">{{category.name}}</view>
+    </view>
+  </scroll-view>
+
+  <van-divider wx:if="{{categorySelected.recommendStatus >0 }}" contentPosition="center">无内容</van-divider>
+
+  
+
+</view>

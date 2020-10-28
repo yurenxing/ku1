@@ -1,0 +1,31 @@
+{
+  "name": "olaola",
+  "version": "1.0.0",
+  "description": "olaola",
+  "main": "app.js",
+  "dependencies": {
+    "@vant/weapp": "^1.2.1",
+    "apifm-wxapi": "^3.7.0",
+    "wxa-plugin-canvas": "^1.1.12",
+    "wxbarcode": "^1.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "微店",
+    "小店",
+    "微商城"
+  ],
+  "author": "olaola",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": ""
+}

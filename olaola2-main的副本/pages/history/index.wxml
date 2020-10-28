@@ -1,0 +1,20 @@
+<view class="container">
+  <van-divider contentPosition="center">浏览历史</van-divider>
+  <view class="no-order" hidden="{{orderList ? true : false}}">
+    <image src="/images/no-order.png" class="no-order-img"></image>
+    <view class="text">暂无浏览</view>
+  </view>
+  <view class="order-list" hidden="{{orderList ? false : true}}">
+    <view class="a-order" wx:for="{{orderList}}" wx:key="index">
+      <view class="goods-info" wx:for="{{goodsMap[item.id]}}" wx:key="index">
+        <navigator url="/pages/video-details/index?id={{item.goodsId}}">
+          <image src="{{item.pic}}" mode='aspectFill' class="img-box"></image>
+          <view class="goods-des">
+            <view>{{item.goodsName}} -- {{item.dateAdd}} </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <view class="safeAreaOldMarginBttom safeAreaNewMarginBttom"></view>
+</view>
